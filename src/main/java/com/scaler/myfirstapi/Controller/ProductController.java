@@ -1,7 +1,7 @@
-package Controller;
+package com.scaler.myfirstapi.Controller;
 
-import Modle.Product;
-import Service.ProductService;
+import com.scaler.myfirstapi.Modle.Product;
+import com.scaler.myfirstapi.Service.ProductService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,7 +21,7 @@ public class ProductController {
     public Product getProductById(@PathVariable("id") Long id) {
         return productService.getProductById(id);
     }
-    @GetMapping()
+    @GetMapping
     public List<Product> getAllProducts() {
         return productService.getAllProducts();
     }

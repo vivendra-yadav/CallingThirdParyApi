@@ -1,4 +1,4 @@
-package Modle;
+package com.scaler.myfirstapi.Modle;
 
 
 import lombok.Getter;

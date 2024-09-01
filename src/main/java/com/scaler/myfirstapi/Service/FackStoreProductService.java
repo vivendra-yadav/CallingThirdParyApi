@@ -1,8 +1,8 @@
-package Service;
+package com.scaler.myfirstapi.Service;
 
-import Dto.FackStoreProductDto;
-import Modle.Category;
-import Modle.Product;
+import com.scaler.myfirstapi.Dto.FackStoreProductDto;
+import com.scaler.myfirstapi.Modle.Category;
+import com.scaler.myfirstapi.Modle.Product;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 

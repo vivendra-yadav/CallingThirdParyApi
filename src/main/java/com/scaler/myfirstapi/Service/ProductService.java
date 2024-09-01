@@ -1,6 +1,6 @@
-package Service;
+package com.scaler.myfirstapi.Service;
 
-import Modle.Product;
+import com.scaler.myfirstapi.Modle.Product;
 
 import java.util.List;
 

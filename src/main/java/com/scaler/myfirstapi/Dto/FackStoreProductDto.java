@@ -1,4 +1,4 @@
-package Dto;
+package com.scaler.myfirstapi.Dto;
 
 import lombok.Getter;
 import lombok.Setter;
