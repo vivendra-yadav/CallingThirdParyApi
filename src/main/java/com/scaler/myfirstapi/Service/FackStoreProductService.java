@@ -6,6 +6,7 @@ import com.scaler.myfirstapi.Modle.Product;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.ArrayList;
 import java.util.List;
 @Service
 public class FackStoreProductService implements ProductService {
@@ -53,6 +54,16 @@ private Product convertFackStoreProductToProduct(FackStoreProductDto dto){
 
     @Override
     public List<Product> getAllProducts() {
-        return List.of();
+        FackStoreProductDto[] fakeStoreProductDtos =
+                restTemplate.getForObject("https://fakestoreapi.com/products",
+                        FackStoreProductDto[].class);
+
+        //convert List of FakeStoreProductDtos to List of Products
+        List<Product> response = new ArrayList<>();
+        for (FackStoreProductDto fakeStoreProductDto : fakeStoreProductDtos) {
+            response.add(convertFackStoreProductToProduct(fakeStoreProductDto));
+        }
+
+        return response;
     }
 }
