@@ -19,7 +19,13 @@ public class ProductController {
     @GetMapping("/{id}")
     public ResponseEntity<Product> getProductById(@PathVariable("id") Long id) {
         Product product = productService.getProductById(id);
-        return new ResponseEntity<>(product, HttpStatus.OK);
+        ResponseEntity<Product> responseEntity;
+        if(product==null) {
+            responseEntity = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+            return responseEntity;
+        }
+        responseEntity = new ResponseEntity<>(product, HttpStatus.OK);
+        return responseEntity;
     }
     @GetMapping
     public List<Product> getAllProducts() {
