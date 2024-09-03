@@ -1,6 +1,7 @@
 package com.scaler.myfirstapi.Service;
 
 import com.scaler.myfirstapi.Dto.FackStoreProductDto;
+import com.scaler.myfirstapi.Expection.ProductNotFoundException;
 import com.scaler.myfirstapi.Modle.Category;
 import com.scaler.myfirstapi.Modle.Product;
 import org.springframework.http.HttpMethod;
@@ -36,12 +37,12 @@ private Product convertFackStoreProductToProduct(FackStoreProductDto dto){
 
  }
     @Override
-    public Product getProductById(Long id) {
+    public Product getProductById(Long id) throws ProductNotFoundException {
         FackStoreProductDto fakeStoreProductDto =
                     restTemplate.getForObject("https://fakestoreapi.com/products/" + id,
                             FackStoreProductDto.class);
         if (fakeStoreProductDto == null) {
-                return null;
+                throw new ProductNotFoundException("Product with id:"+id+" not found");
             }
 
             //Convert FakeStore DTO into Product object.
