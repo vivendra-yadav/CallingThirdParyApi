@@ -37,24 +37,16 @@ private Product convertFackStoreProductToProduct(FackStoreProductDto dto){
  }
     @Override
     public Product getProductById(Long id) {
-        try {
-
-            FackStoreProductDto fakeStoreProductDto =
+        FackStoreProductDto fakeStoreProductDto =
                     restTemplate.getForObject("https://fakestoreapi.com/products/" + id,
                             FackStoreProductDto.class);
-
-
-            if (fakeStoreProductDto == null) {
+        if (fakeStoreProductDto == null) {
                 return null;
             }
 
             //Convert FakeStore DTO into Product object.
             return convertFackStoreProductToProduct(fakeStoreProductDto);
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
 
-        }
     }
 
     @Override

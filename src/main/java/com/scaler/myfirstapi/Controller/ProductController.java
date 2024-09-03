@@ -21,7 +21,7 @@ public class ProductController {
         Product product = productService.getProductById(id);
         ResponseEntity<Product> responseEntity;
         if(product==null) {
-            responseEntity = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+            responseEntity = new ResponseEntity<>(HttpStatus.NOT_FOUND);
             return responseEntity;
         }
         responseEntity = new ResponseEntity<>(product, HttpStatus.OK);
