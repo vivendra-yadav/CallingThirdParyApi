@@ -42,7 +42,7 @@ private Product convertFackStoreProductToProduct(FackStoreProductDto dto){
                     restTemplate.getForObject("https://fakestoreapi.com/products/" + id,
                             FackStoreProductDto.class);
         if (fakeStoreProductDto == null) {
-                throw new ProductNotFoundException("Product with id:"+id+" not found");
+                throw new ProductNotFoundException(id,"Product with id:"+id+" not found");
             }
 
             //Convert FakeStore DTO into Product object.
