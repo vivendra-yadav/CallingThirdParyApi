@@ -73,7 +73,7 @@ private Product convertFackStoreProductToProduct(FackStoreProductDto dto){
         fackStoreProductDto.setPrice(product.getPrice());
         fackStoreProductDto.setDescription(product.getDescription());
         fackStoreProductDto.setImage(product.getImage());
-
+// copied
         RequestCallback requestCallback = restTemplate.httpEntityCallback(fackStoreProductDto, FackStoreProductDto.class);
         HttpMessageConverterExtractor<FackStoreProductDto> responseExtractor =
                 new HttpMessageConverterExtractor<>(FackStoreProductDto.class, restTemplate.getMessageConverters());
